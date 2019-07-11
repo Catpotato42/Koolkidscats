@@ -1,1 +1,315 @@
-
+import pygame
+pygame.init
+import random
+print("welcome to the minigames")
+choice=input("What minigame would you like to play? (Fight)(Dragon)(Pokemon)(Magic8)(ShipBattle)")
+while 0=0
+  if choice!="Fight" or "Dragon" or "Pokemon" or "Magic8":
+  choice=input("What minigame would you like to play? (Fight)(Dragon)(Pokemon)(Magic8)(ShipBattle)")
+if choice==Fight:
+  print("----------------------------------------------------------FIGHT-----------------------------------------------------------")
+print("                                                       version 1.3 alpha testing")
+print("current                            bugs: if you do not beg for mercy below 10 health, you get another turn.")
+print("                    updates: loading screen with wait time, god abilities for tests, and hit messages.")
+print("------------------------------------IT IS RECOMMENDED THAT YOU PLAY WITH CAPS LOCK ON-------------------------------------")
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(300)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(2000)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(100)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(300)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(100)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(100)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(100)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(100)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(200)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(200)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(200)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+pygame.time.wait(200)
+print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
+#player 1's health
+player1health=30
+#player 2's health
+player2health=30
+#p1's defense
+player1defense=0
+#p2's defense
+player2defense=0
+#if player 1's health is below ten they can beg
+mercy1=0
+#same for p2
+mercy2=0
+#tells program p1 begged
+beg1=0
+#same for p2
+beg2=0
+#bugfix
+bugfix1=0
+bugfix2=0
+print("Weeeeelcome all! This is a fight between the two champions! Whoever wins will be the champion and have a statue in their honor! ")
+print("3!")
+pygame.time.wait(1000)
+print("2!")
+pygame.time.wait(1000)
+print("1!")
+pygame.time.wait(1000)
+print("FIIIGGGHHHTT!")
+while player1health and player2health>0:
+    #poss. damage or healing for each attack (inside loop twice so numbers change)
+    PUNCH=random.randint(4,7)
+    KICK=random.randint(3,8)
+    HEAL=random.randint(4,5)
+    CIFP=random.randint(1,3)
+    #messages for hits or heals
+    punchm=random.randint(1,2)
+    kickm=random.randint(1,2)
+    healm=random.randint(1,2)
+    cifpm=random.randint(1,2)
+    if player1health or player2health<3:
+        pm1="FINISHING BLOW! PLAYER 2 IS AT "+str(player2health)+" HEALTH!" 
+        if punchm==1:
+            pm1="POW! YOU HAVE PUNCHED PLAYER 2 FOR "+str(PUNCH)+" DAMAGE!"
+        if punchm==2:
+            pm1="KRAKOW! PLAYER 2 TWISTS AND SHOUTS AS "+str(PUNCH)+" DAMAGE SLAMS INTO THEIR FACE!"
+        if kickm==1:
+            km1="WHHHAAACCK! TEARS STREAM DOWN PLAYER 2'S FACE AS THEY DOUBLE OVER IN PAIN AS THEIR HEALTH IS SUBTRACTED BY "+str(PUNCH)+"!"
+            
+    #player2beggingcode
+    if beg1==1:
+        spare=input("Player 1 is begging for mercy! They are at their most vulnerable now! Would you like to spare them? (YES or NO) ")
+        #you will spare them
+        if spare=="YES":
+            #whether audience liked your performance or not
+            audience=random.randint(1,2)
+            if audience==1:
+                audience="CHEERS AND THROWS MONEY AT BOTH OF YOU FOR BEING KIND AND COURTEOUS."
+            if audience==2:
+                audience="BOOS AND THROWS ROTTEN TOMATOES AT YOU FOR NOT FINISHING THE FIGHTING IN A FIGHTING ARENA."
+            print("PLAYER 1 HAS BEEN SPARED ANNIHILATION. THE AUDIENCE "+audience)
+            print()
+            print()
+            print()
+            print("----------------------------------------------")
+            print("----------------PLAYER 2 WINS!----------------")
+            #end program (this took a while to figure out but in the end it was so simple!)
+            import sys
+            sys.exit()
+        #you won't spare them
+        if spare=="NO":
+            #your fickle viewers
+            audience1=random.randint(1,2)
+            if audience1==1:
+                audience1="CHEERS AND THROWS MONEY AT YOU FOR GIVING THEM ENTERTAINMENT."
+            if audience1==2:
+                audience1="BOOS AND THROWS ROTTEN TOMATOES AT YOU FOR NOT BEING COURTEOUS. A MEDIC COMES ON AND GLARES AT YOU BEFORE RUSHING PLAYER 1 OFF."
+            print("YOU DELIVER A DEVESTATING FLURRY OF BLOWS AS PLAYER 1 SHOWS THEIR WEAK SPOT. PLAYER 2 COLLAPSES AND THE AUDIENCE "+audience1)
+            print()
+            print()
+            print()
+            print("------------------------------------------------------")
+            print("--------------------PLAYER 2 WINS!--------------------")
+            import sys
+            sys.exit()
+#attackscode
+    attack=input("1up. Would you like to PUNCH, KICK, HEAL, or CIFP(cry in fetal position)? ")
+    #what attack
+    if attack=="INSTA":
+        player2health-=29
+    if attack=="GODHEAL":
+        print("YOU HAVE CALLED DOWN THE POWER OF THE GODS. you feel a lifting sensation. you feel... aloof. like you were imbued with the souls of 50 fallen brave warriors.")
+        player1health=50
+    if attack=="PUNCH":
+        print(pm1)
+        print()
+        print()
+        if player2defense==0:
+            player2health-=PUNCH
+        if player2defense>=1:
+            player2defense-=1
+    if attack=="KICK":
+        print(km1)
+        print()
+        print()
+        if player2defense==0:
+            player2health-=KICK
+        if player2defense>=1:
+            player2defense-=1
+    if attack=="HEAL":
+        player1health+=HEAL
+    if attack=="CIFP":
+        print("You sob uncontrollably in the corner of the ring while your opponent kicks you")
+        player1health+=1
+        if CIFP==2:
+            player1defense+=1
+    print()
+    print()        
+    print("Player 2's health is "+str(player2health)+". Player 2's defense is "+str(player2defense)+". Player 1's health is "+str(player1health)+". Player 1's defense is "+str(player1defense))
+#borderlands reference kill an enemy to revive "second wind"
+    if player2health<1:
+        print("Oh! A mighty fine blow! Player 2 has a chance to get a second wind though!")
+    if player1health>1 and player2health<1:
+        print()
+        print()
+        print()
+        print("--------------------------------------------------------")
+        print("--------------------PLAYER 2 WINS-----------------------")
+        import sys
+        sys.exit()
+#2ndplayermercycode
+    if player2health>=1 and player2health<=10:
+        mercy2=1
+        print("Player 2 may now beg for mercy!")
+        attack=input("2up. Would you like to PUNCH, KICK, HEAL, BEG, or CIFP(cry in fetal position)? ")
+        if attack=="PUNCH":
+            bugfix=1
+            if player1defense==0:
+                player1health-=PUNCH
+            if player1defense>1:
+                player1defense-=1
+        if attack=="GODHEAL":
+            print("YOU HAVE CALLED DOWN THE POWER OF THE GODS. you feel a lifting sensation. you feel... aloof. like you were imbued with the souls of 50 fallen brave warriors.")
+            player2health=50
+        if attack=="KICK":
+            bugfix1=1
+            if player2defense==0:
+                player2health-=KICK
+            if player2defense>1:
+                player2defense-=1
+        if attack=="HEAL":
+            bugfix1=1
+            player2health+=HEAL
+        if attack=="CIFP":
+            print("You sob uncontrollably in the corner of the ring while your opponent kicks you")
+            bugfix1=1
+            player2health+=1
+            if CIFP==2:
+                player2defense+=1
+        if attack=="BEG":
+            beg2=1
+    #player2beggingcode
+    if beg2==1:
+        spare=input("Player 2 is begging for mercy! They are at their most vulnerable now! Would you like to spare them? (YES or NO) ")
+        #you will spare them
+        if spare=="YES":
+            #whether audience liked your performance or not
+            audience=random.randint(1,2)
+            if audience==1:
+                audience="CHEERS AND THROWS MONEY AT BOTH OF YOU FOR BEING KIND AND COURTEOUS."
+            if audience==2:
+                audience="BOOS AND THROWS ROTTEN TOMATOES AT YOU FOR NOT FINISHING THE FIGHTING IN A FIGHTING ARENA."
+            print("PLAYER 2 HAS BEEN SPARED ANNIHILATION. THE AUDIENCE "+audience)
+            print()
+            print()
+            print()
+            print("----------------------------------------------------------")
+            print("----------------------PLAYER 1 WINS!----------------------")
+            #end program (this took a while to figure out but in the end it was so simple!)
+            import sys
+            sys.exit()
+        #you won't spare them
+        if spare=="NO":
+            #your fickle viewers
+            audience1=random.randint(1,2)
+            if audience1==1:
+                audience1="CHEERS AND THROWS MONEY AT YOU FOR GIVING THEM ENTERTAINMENT."
+            if audience1==2:
+                audience1="BOOS AND THROWS ROTTEN TOMATOES AT YOU FOR NOT BEING COURTEOUS. A MEDIC COMES ON AND GLARES AT YOU BEFORE RUSHING PLAYER 2 OFF."
+            print("YOU DELIVER A DEVASTATING FLURRY OF BLOWS AS PLAYER 2 SHOWS THEIR WEAK SPOT. PLAYER 2 COLLAPSES AND THE AUDIENCE "+audience1)
+            print()
+            print()
+            print()
+            print("---------------------------------------------------------")
+            print("----------------------PLAYER 1 WINS!---------------------")
+            import sys
+            sys.exit()
+    #poss. damage or healing for each attack (inside loop so numbers change)
+    PUNCH=random.randint(4,7)
+    KICK=random.randint(3,8)
+    HEAL=random.randint(4,5)
+    CIFP=random.randint(1,2)
+    #attackscode
+    if beg2==1:
+        continue
+    attack=input("2up. Would you like to PUNCH, KICK, HEAL, or CIFP(cry in fetal position)? ")
+    #what attack
+    if attack=="INSTA":
+        player1health-=29
+    
+    if attack=="PUNCH":
+        if player1defense==0:
+            player1health-=PUNCH
+        if player1defense>=1:
+            player1defense-=1
+    if attack=="GODHEAL":
+        print("YOU HAVE CALLED DOWN THE POWER OF THE GODS. you feel a lifting sensation. you feel... aloof. like you were imbued with the souls of 50 fallen brave warriors.")
+        player2health=50
+    if attack=="KICK":
+        if player1defense==0:
+            player1health-=KICK
+        if player1defense>=1:
+            player1defense-=1
+    if attack=="HEAL":
+        player2health+=HEAL
+    if attack=="CIFP":
+        player2health+=1
+        if CIFP==2:
+            player2defense+=1
+            
+            
+    print()
+    print()        
+    print("Player 1's health is "+str(player1health)+". Player 1's defense is "+str(player1defense)+". Player 2's health is "+str(player2health)+". Player 2's defense is "+str(player2defense))
+#borderlands reference kill an enemy to revive "second wind"
+    if player1health<=0:
+        print("Oh! A mighty fine blow! Player 1 has a chance to get a second wind though!")
+        continue
+    if player1health<=0 and player2health>=1:
+        print()
+        print()
+        print()
+        print("---------------------------------------------------")
+        print("---------PLAYER 2 WINS!----------")
+        import sys
+        sys.exit()
+#firstplayermercycode
+    if player1health>=1 and player1health<=10:
+        mercy1=1
+        print("Player 1 may now beg for mercy!")
+        attack=input("1up. Would you like to PUNCH, KICK, HEAL, BEG, or CIFP(cry in fetal position)? ")
+        if attack=="PUNCH":
+            bugfix2=1
+            if player2defense==0:
+                player2health-=PUNCH
+            if player2defense>1:
+                player2defense-=1
+        if attack=="KICK":
+            bugfix2=1
+            if player2defense==0:
+                player2health-=KICK
+            if player2defense>1:
+                player2defense-=1
+        if attack=="GODHEAL":
+            bugfix2=1
+            print("YOU HAVE CALLED DOWN THE POWER OF THE GODS. you feel a lifting sensation. you feel... aloof. like you were imbued with the souls of 50 fallen brave warriors.")
+            player1health=50
+        if attack=="HEAL":
+            bugfix2=1
+            player1health+=HEAL
+        if attack=="CIFP":
+            bugfix2=1
+            player1health+=1
+            if CIFP==2:
+                player1defense+=1
+        if attack=="BEG":
+            beg1=1
+  
