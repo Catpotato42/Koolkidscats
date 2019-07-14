@@ -9,7 +9,7 @@ while 0=0
 if choice==Fight:
   print("----------------------------------------------------------FIGHT-----------------------------------------------------------")
 print("                                                       version 1.3 alpha testing")
-print("current                            bugs: if you do not beg for mercy below 10 health, you get another turn.")
+print("current bugs: if you do not beg for mercy below 10 health, you get another turn.")
 print("                    updates: loading screen with wait time, god abilities for tests, and hit messages.")
 print("------------------------------------IT IS RECOMMENDED THAT YOU PLAY WITH CAPS LOCK ON-------------------------------------")
 print("|--------------------------------------------------------LOADING---------------------------------------------------------|")
@@ -232,6 +232,12 @@ while player1health and player2health>0:
             print("----------------------PLAYER 1 WINS!---------------------")
             import sys
             sys.exit()
+    
+    
+    
+    
+    
+    
     #poss. damage or healing for each attack (inside loop so numbers change)
     PUNCH=random.randint(4,7)
     KICK=random.randint(3,8)
@@ -240,11 +246,20 @@ while player1health and player2health>0:
     #attackscode
     if beg2==1:
         continue
+        
+        
+        
+        
+        
+    punchm=random.randint(1,2)
+    kickm=random.randint(1,2)
+    healm=random.randint(1,2)
+    cifpm=random.randint(1,2)   
     attack=input("2up. Would you like to PUNCH, KICK, HEAL, or CIFP(cry in fetal position)? ")
     #what attack
     if attack=="INSTA":
+        print("boop!")
         player1health-=29
-    
     if attack=="PUNCH":
         if player1defense==0:
             player1health-=PUNCH
@@ -254,6 +269,7 @@ while player1health and player2health>0:
         print("YOU HAVE CALLED DOWN THE POWER OF THE GODS. you feel a lifting sensation. you feel... aloof. like you were imbued with the souls of 50 fallen brave warriors.")
         player2health=50
     if attack=="KICK":
+        print(km1)
         if player1defense==0:
             player1health-=KICK
         if player1defense>=1:
